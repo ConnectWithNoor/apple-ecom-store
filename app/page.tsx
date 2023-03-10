@@ -1,11 +1,16 @@
-import { Header } from "@/components";
+import { Header, Hero, Promos } from "@/sections";
 import { Metadata } from "next";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Header />
-    </main>
+      <main>
+        <Hero />
+        {/* @ts-expect-error Server Component */}
+        <Promos />
+      </main>
+    </>
   );
 }
 

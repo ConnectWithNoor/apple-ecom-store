@@ -1,3 +1,6 @@
-import Header from './header';
+import Button from "./button";
+import ProductCard from "./productCard";
+import ShoppingCartIcon from "./shoppingCartIcon";
+import TabList from "./TabList";
 
-export { Header };
+export { Button, TabList, ProductCard, ShoppingCartIcon };
