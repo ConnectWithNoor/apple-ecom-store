@@ -24,7 +24,7 @@ function ProductCard({ product }: Props) {
           <p>{product.price}</p>
         </div>
 
-        <ShoppingCartIcon />
+        <ShoppingCartIcon product={product} />
       </div>
     </div>
   );

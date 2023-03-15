@@ -1,10 +1,22 @@
 "use client";
-
+import { useDispatch } from "react-redux";
 import { ShoppingCartIcon as Icon } from "@heroicons/react/24/outline";
+import { addToBasket } from "@/redux/slice/basketSlice";
+import { toast } from "react-hot-toast";
 
-function ShoppingCartIcon() {
+type Props = {
+  product: Product;
+};
+
+function ShoppingCartIcon({ product }: Props) {
+  const dispatch = useDispatch();
+
   const addItemToBasket = () => {
-    // redux stuff
+    dispatch(addToBasket(product));
+
+    toast.success(`${product.title} added to basket.`, {
+      position: "bottom-center",
+    });
   };
 
   return (

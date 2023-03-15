@@ -1,35 +1,44 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
-export interface CounterState {
-  value: number;
+export interface BasketState {
+  items: Product[];
 }
 
-const initialState: CounterState = {
-  value: 0,
+const initialState: BasketState = {
+  items: [],
 };
 
 export const basketSlice = createSlice({
-  name: "counter",
+  name: "basket",
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    addToBasket: (state, action: PayloadAction<Product>) => {
+      state.items = [...state.items, action.payload];
     },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    removeFromBasket: (state, action: PayloadAction<{ id: string }>) => {
+      const filteredBasket = state.items.filter(
+        (item) => item._id !== action.payload.id
+      );
+
+      state.items = filteredBasket;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = basketSlice.actions;
+export const { addToBasket, removeFromBasket } = basketSlice.actions;
+
+// selectors
+export const selectBasketItems = (state: RootState) => state.basket.items;
+export const selectBasketIds = (state: RootState, id: string) => {
+  return state.basket.items.filter((item) => item._id === id);
+};
+export const selectBasketTotal = (state: RootState) => {
+  return state.basket.items.reduce((total, item) => {
+    return (total += Number(item.price));
+  }, 0);
+};
 
 export default basketSlice.reducer;

@@ -2,6 +2,7 @@
 
 import { store } from "@/redux/store";
 import { Provider } from "react-redux";
+import { Toaster } from "react-hot-toast";
 
 type Props = {
   children: React.ReactNode;
@@ -10,7 +11,11 @@ type Props = {
 function ReduxProvider({ children }: Props) {
   return (
     <>
-      <Provider store={store}>{children}</Provider>
+      <Provider store={store}>
+        <Toaster />
+
+        {children}
+      </Provider>
     </>
   );
 }
