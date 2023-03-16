@@ -2,7 +2,7 @@
 
 type Props = {
   title: string;
-  onClick?: () => {};
+  onClick?: () => void;
   width?: string;
   loading?: boolean;
   padding?: string;

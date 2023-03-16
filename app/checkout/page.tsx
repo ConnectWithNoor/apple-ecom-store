@@ -1,8 +1,14 @@
+import { Header } from "@/sections";
 import CheckoutSection from "@/sections/checkout/CheckoutSection";
 import { Metadata } from "next/types";
 
 function Checkout() {
-  return <CheckoutSection />;
+  return (
+    <>
+      <Header />
+      <CheckoutSection />;
+    </>
+  );
 }
 
 export const metadata: Metadata = {

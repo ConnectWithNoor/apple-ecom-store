@@ -1,10 +1,10 @@
 import BasketSticky from "@/components/basketSticky/BasketSticky";
-import { Hero, Promos } from "@/sections";
-import { Metadata } from "next";
+import { Header, Hero, Promos } from "@/sections";
 
 export default function Home() {
   return (
     <>
+      <Header />
       <BasketSticky />
       <main>
         <Hero />
@@ -14,21 +14,3 @@ export default function Home() {
     </>
   );
 }
-
-export const metadata: Metadata = {
-  title: "Apple Ecommerce Store | Made by ConnectWithNoor",
-  description: "The Web application is a redesign concept of Apple store.",
-  authors: {
-    name: "Noor Muhammad",
-    url: "https://connectwithnoor.vercel.app/",
-  },
-  icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
-    other: {
-      rel: "logo",
-      url: "/logo.png",
-    },
-  },
-};
