@@ -14,6 +14,7 @@ type Image = {
   asset: {
     _ref: string;
     _type: "reference";
+    url: string;
   };
 };
 

@@ -18,11 +18,17 @@ export const basketSlice = createSlice({
       state.items = [...state.items, action.payload];
     },
     removeFromBasket: (state, action: PayloadAction<{ id: string }>) => {
-      const filteredBasket = state.items.filter(
-        (item) => item._id !== action.payload.id
+      const index = state.items.findIndex(
+        (item: Product) => item._id === action.payload.id
       );
 
-      state.items = filteredBasket;
+      let newBasket = [...state.items];
+
+      if (index >= 0) {
+        newBasket.splice(index, 1);
+      }
+
+      state.items = newBasket;
     },
   },
 });
