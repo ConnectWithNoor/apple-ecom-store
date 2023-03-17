@@ -1,16 +1,16 @@
-import { ReduxProvider } from "@/components";
+import { ProviderWrapper } from "@/components";
 import { Metadata } from "next";
 import "./globals.css";
 
-export default function SuccessLayout({
-  children,
-}: {
+type Props = {
   children: React.ReactNode;
-}) {
+};
+
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body>
-        <ReduxProvider>{children}</ReduxProvider>
+        <ProviderWrapper>{children}</ProviderWrapper>
       </body>
     </html>
   );

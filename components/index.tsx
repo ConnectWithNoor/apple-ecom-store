@@ -3,7 +3,7 @@ import BasketSticky from "./basketSticky/BasketSticky";
 import Button from "./button";
 import CheckoutProduct from "./checkoutProduct/CheckoutProduct";
 import ProductCard from "./productCard";
-import ReduxProvider from "./reduxProvider";
+import ProviderWrapper from "./providerWrapper";
 import ShoppingCartIcon from "./shoppingCartIcon";
 import TabList from "./TabList";
 
@@ -12,7 +12,7 @@ export {
   TabList,
   ProductCard,
   ShoppingCartIcon,
-  ReduxProvider,
+  ProviderWrapper,
   BasketIcon,
   BasketSticky,
   CheckoutProduct,

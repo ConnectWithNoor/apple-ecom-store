@@ -8,7 +8,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-function ReduxProvider({ children }: Props) {
+function ProviderWrapper({ children }: Props) {
   return (
     <>
       <Provider store={store}>
@@ -20,4 +20,4 @@ function ReduxProvider({ children }: Props) {
   );
 }
 
-export default ReduxProvider;
+export default ProviderWrapper;
